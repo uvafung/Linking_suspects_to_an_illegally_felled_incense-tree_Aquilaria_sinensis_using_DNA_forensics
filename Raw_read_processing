@@ -1,0 +1,38 @@
+## STEP 1: Trim adapters ligated on both ends of the seqeunce
+
+module load biokit 
+module load biojava/21
+
+i=$(sed -n ${SLURM_ARRAY_TASK_ID}p namelist.txt)
+echo "${i}"
+
+## Trimming (adaptertrim.sh)
+/scratch/project_2007811/weixuan_GVCF/00_bioinformaic/adapterremoval-2.3.1/build/AdapterRemoval \
+--file1 "${i}"_1.fq --file2 "${i}"_2.fq \
+--adapter1 AAGTCGGAGGCCAAGCGGTCTTAGGAAGACAANNNNNNNNNNCAACTCCTTGGCTCACA \
+--adapter2 AAGTCGGATCGTAGCCATGTCGTTCTGTGAGCCAAGGAGTTG \
+--basename "${i}" \
+--collapse --trimns --trimqualities --gzip # trim raw reads based on quality scores and adapters (this is in one line)
+
+
+
+## STEP 2: Map the reference genome to the sequence and index it, generating a bam file output
+
+bwa mem -t10 -M  ./GCA_011066525.1_CUHK_Asin_1.0_genomic.fna "${i}".pair1.truncated.gz "${i}".pair2.truncated.gz | samtools view -hb -o "${i}".PE.bam
+bwa mem -t10 -M  ./GCA_011066525.1_CUHK_Asin_1.0_genomic.fna "${i}".collapsed.gz | samtools view -hb -o "${i}".ME.bam
+
+samtools merge "${i}".PE_ME_merged.bam "${i}".PE.bam "${i}".ME.bam
+samtools sort -m 24G -o "${i}".PE_ME_merged_sort.bam "${i}".PE_ME_merged.bam
+samtools index "${i}".PE_ME_merged_sort.bam
+
+picard64 AddOrReplaceReadGroups I="${i}".PE_ME_merged_sort.bam O="${i}".PE_ME_merged_sort_RG.bam ID="${i}"_PE_ME SM="${i}" LB="${i}" PL=DNBseq PU=BGI CN=BGI VALIDATION_STRINGENCY=SILENT
+samtools sort -m 24G -o "${i}".PE_ME_merged_sort_RG_resort.bam "${i}".PE_ME_merged_sort_RG.bam
+samtools index "${i}".PE_ME_merged_sort_RG_resort.bam
+picard64 MarkDuplicates I="${i}".PE_ME_merged_sort_RG_resort.bam O="${i}".PE_ME_merged_sort_RG_resort_Mkdup.bam AS=TRUE M="${i}".PE_ME_merged_sort_RG_resort.metrics REMOVE_DUPLICATES=FALSE VALIDATION_STRINGENCY=LENIENT
+
+samtools sort -m 24G -o "${i}".PE_ME_merged_sort_RG_resort_Mkdup_finalsort.bam "${i}".PE_ME_merged_sort_RG_resort_Mkdup.bam
+samtools index "${i}".PE_ME_merged_sort_RG_resort_Mkdup_finalsort.bam
+samtools flagstat "${i}".PE_ME_merged_sort_RG_resort_Mkdup_finalsort.bam > "${i}".PE_ME_merged_sort_RG_resort_Mkdup_finalsort.flagstat
+samtools depth "${i}".PE_ME_merged_sort_RG_resort_Mkdup_finalsort.bam | awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)**2)}' > coverage_"${i}".txt
+
+
