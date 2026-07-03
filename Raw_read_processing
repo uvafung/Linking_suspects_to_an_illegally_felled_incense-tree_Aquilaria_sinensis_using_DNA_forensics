@@ -6,7 +6,7 @@ module load biojava/21
 i=$(sed -n ${SLURM_ARRAY_TASK_ID}p namelist.txt)
 echo "${i}"
 
-## Trimming (adaptertrim.sh)
+# Trimming (adaptertrim.sh)
 /scratch/project_2007811/weixuan_GVCF/00_bioinformaic/adapterremoval-2.3.1/build/AdapterRemoval \
 --file1 "${i}"_1.fq --file2 "${i}"_2.fq \
 --adapter1 AAGTCGGAGGCCAAGCGGTCTTAGGAAGACAANNNNNNNNNNCAACTCCTTGGCTCACA \
