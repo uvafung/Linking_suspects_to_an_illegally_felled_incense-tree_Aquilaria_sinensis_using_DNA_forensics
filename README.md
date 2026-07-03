@@ -1,8 +1,8 @@
-# Linking suspects to an illegally felled incense tree (Aquilaria sinensis) using DNA forensics
+# Linking suspects to an illegally felled incense tree (_Aquilaria sinensis_) using DNA forensics
 
 This repository contains all processing scripts for the manuscript: 
 
-Kerry Reid a, Uva Y.Y. Fung a,b, Arthur F. Sands a, Weixuan Ning a,c, Astrid A. Andersson a,b, Ryan Ho Leung Tsang d, Eric Ka Yip Liu d, Billy C.H. Hau a & Juha Merilä a,b
+Kerry Reid <sup>a</sup>, Uva Y.Y. Fung <sup>a,b</sup>, Arthur F. Sands <sup>a</sup>, Weixuan Ning <sup>a,c</sup>, Astrid A. Andersson <sup>a,b</sup>, Ryan Ho Leung Tsang <sup>d</sup>, Eric Ka Yip Liu <sup>d</sup>, Billy C.H. Hau <sup>a</sup> & Juha Merilä <sup>a,b</sup>
  
 a Area of Ecology and Biodiversity, School of Biological Sciences, The University of Hong Kong, Hong Kong SAR <br />
 b Conservation Forensics Laboratory, The University of Hong Kong, Hong Kong SAR <br />
