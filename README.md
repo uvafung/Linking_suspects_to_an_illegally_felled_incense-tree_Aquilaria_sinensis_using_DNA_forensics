@@ -1,8 +1,6 @@
 # Linking suspects to an illegally felled incense tree (_Aquilaria sinensis_) using DNA forensics
 
-This repository contains all processing scripts for the manuscript: 
-
-Kerry Reid <sup>a</sup>, Uva Y.Y. Fung <sup>a,b</sup>, Arthur F. Sands <sup>a</sup>, Weixuan Ning <sup>a,c</sup>, Astrid A. Andersson <sup>a,b</sup>, Ryan Ho Leung Tsang <sup>d</sup>, Eric Ka Yip Liu <sup>d</sup>, Billy C.H. Hau <sup>a</sup> & Juha Merilä <sup>a,b</sup>
+### Kerry Reid <sup>a</sup>, Uva Y.Y. Fung <sup>a,b</sup>, Arthur F. Sands <sup>a</sup>, Weixuan Ning <sup>a,c</sup>, Astrid A. Andersson <sup>a,b</sup>, Ryan Ho Leung Tsang <sup>d</sup>, Eric Ka Yip Liu <sup>d</sup>, Billy C.H. Hau <sup>a</sup> & Juha Merilä <sup>a,b</sup>
  
 <sup>a</sup> Area of Ecology and Biodiversity, School of Biological Sciences, The University of Hong Kong, Hong Kong SAR <br />
 <sup>b</sup> Conservation Forensics Laboratory, The University of Hong Kong, Hong Kong SAR <br />
@@ -11,7 +9,8 @@ Kerry Reid <sup>a</sup>, Uva Y.Y. Fung <sup>a,b</sup>, Arthur F. Sands <sup>a</s
 
 Corresponding author: merila@hku.hk
 
-This repository relates to scripts and support files of the above-mentioned paper. Queries related to scripts and provided files can be directed to the corresponding author.
+This repository contains scripts and support files of the above-mentioned paper. Queries related to scripts and provided files can be directed to the corresponding author.
+
 ******************
 
 
