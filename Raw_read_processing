@@ -1,4 +1,4 @@
-## STEP 1: Trim adapters ligated on both ends of the seqeunce
+## STEP 1: Trim adapters ligated on both ends of the sequence
 
 module load biokit 
 module load biojava/21
