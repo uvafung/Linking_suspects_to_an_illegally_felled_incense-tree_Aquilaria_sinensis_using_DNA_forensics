@@ -1,4 +1,4 @@
-## STEP 1: Trim adapters ligated on both ends of the sequence
+###STEP 1: Trim adapters ligated on both ends of the sequence
 
 module load biokit 
 module load biojava/21
@@ -16,7 +16,7 @@ echo "${i}"
 
 
 
-## STEP 2: Map the reference genome to the sequence and index it, generating a bam file output
+###STEP 2: Map the reference genome to the sequence and index it, generating a bam file output
 
 bwa mem -t10 -M  ./GCA_011066525.1_CUHK_Asin_1.0_genomic.fna "${i}".pair1.truncated.gz "${i}".pair2.truncated.gz | samtools view -hb -o "${i}".PE.bam
 bwa mem -t10 -M  ./GCA_011066525.1_CUHK_Asin_1.0_genomic.fna "${i}".collapsed.gz | samtools view -hb -o "${i}".ME.bam
