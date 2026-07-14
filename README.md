@@ -9,7 +9,7 @@
 
 Corresponding author: merila@hku.hk
 
-This repository contains scripts and support files of the above-mentioned paper. Queries related to scripts and provided files can be directed to Kerry Reid kreid@hku.hk or Uva Fung uvafung@connect.hku.hk .
+This repository contains scripts and support files of the above-mentioned paper. Queries related to scripts and provided files can be directed to Kerry Reid kreid1@ucsc.edu or Uva Fung uvafung@connect.hku.hk .
 
 ******************
 
