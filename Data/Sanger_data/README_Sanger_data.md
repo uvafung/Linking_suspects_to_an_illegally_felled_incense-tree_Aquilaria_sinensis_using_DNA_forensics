@@ -1,4 +1,4 @@
-### DNA Barcode (Sanger) Sequences:
+### DNA Barcode Sequences:
  
 This directory contains DNA barcode sequences for _Aquilaria sinensis_ (incense tree) samples used in this study, using Chloroplast maturase _K_ (_matK_) and Internal Transcribed Spacer (ITS).
  
